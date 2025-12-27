@@ -2,7 +2,7 @@
 
 This document describes the logical flow of the MATLAB script
 `msin_tracking_realsense.m`, which performs real-time object detection and 3D tracking
-using Intel RealSense RGB-D data.
+using Intel RealSense d435i.
 
 ---
 
