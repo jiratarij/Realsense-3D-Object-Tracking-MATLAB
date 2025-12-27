@@ -32,9 +32,13 @@ To enhance interpretability, the measured tracking data is visualized and compar
 - Quantitative evaluation of tracking accuracy and robustness
 - Data visualization for comparison between measured and reference motion
 
-> **Note**  
-> This repository provides a high-level overview in the README.  
-> Detailed system configuration, processing pipelines, and evaluation methodologies are documented separately in the `docs/` folder.
+
+## 🎥 Tracking Demonstration
+
+Below is a real-time demonstration of the 3D object tracking system in action. The green markers indicate the tracked center of the circular object based on the depth and RGB data processing.
+
+![3D Tracking Output](media/tracking_display.gif)
+*Figure 1: Real-time 3D tracking output showing the detected object center.*
 
 
 ## Documentation
