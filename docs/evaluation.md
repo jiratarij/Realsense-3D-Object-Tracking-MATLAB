@@ -3,7 +3,7 @@
 This document explains how tracking performance is evaluated using
 `Evaluation.m`.
 
----
+
 
 ## 1. Evaluation Objectives
 
@@ -12,7 +12,7 @@ The evaluation focuses on:
 - Tracking Success Rate
 - Trajectory Visualization
 
----
+
 
 ## 2. Trajectory Smoothing
 
@@ -21,7 +21,7 @@ The evaluation focuses on:
   - Reduce noise
   - Highlight motion trend
 
----
+
 
 ## 3. Amplitude Deviation Analysis
 
@@ -30,7 +30,7 @@ The evaluation focuses on:
 
 $$\text{Amplitude Deviation} = \text{Measured Amplitude} - \text{Reference Amplitude}$$
 
----
+
 
 ## 4. Tracking Success Rate
 
@@ -39,7 +39,7 @@ $$\text{Amplitude Deviation} = \text{Measured Amplitude} - \text{Reference Ampli
 
 $$\text{Tracking Success Rate} = \frac{\text{Valid Tracking Frames}}{\text{Total Frames}}$$
 
----
+
 
 ## 5. Trajectory Visualization
 
