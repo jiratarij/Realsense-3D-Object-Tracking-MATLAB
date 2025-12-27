@@ -7,6 +7,26 @@ This document explains how tracking performance is evaluated using
 
 ## 1. Evaluation Objectives
 
+```mermaid
+graph TD
+    S1(Frame Acquisition) --> S2(Depth-Color Alignment)
+    S2 --> S3(Region of Interest ROI Cropping)
+    S3 --> S4(Image Pre-processing)
+    S4 --> S5(Object Segmentation)
+    S5 --> S6(Circle Detection)
+    S6 --> S7(3D Coordinate Extraction)
+    S7 --> S8(Tracking Over Time)
+
+    style S1 fill:none,stroke:#333,stroke-width:1px
+    style S2 fill:none,stroke:#333,stroke-width:1px
+    style S3 fill:none,stroke:#333,stroke-width:1px
+    style S4 fill:none,stroke:#333,stroke-width:1px
+    style S5 fill:none,stroke:#333,stroke-width:1px
+    style S6 fill:none,stroke:#333,stroke-width:1px
+    style S7 fill:none,stroke:#333,stroke-width:1px
+    style S8 fill:none,stroke:#333,stroke-width:1px
+```
+
 The evaluation focuses on:
 - Motion amplitude in 3D space
 - Deviation from ideal and reference trajectories
