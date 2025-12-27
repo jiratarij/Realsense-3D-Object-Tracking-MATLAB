@@ -56,7 +56,7 @@ tic   % Start timer
 % ===================== Main Processing Loop =====================
 while run_loop && framecounts < 200
     
-    %% --------------------- Frame Acquisition ---------------------
+    % --------------------- Frame Acquisition ---------------------
     framecounts = framecounts + 1;
 
     % Acquire new frameset
@@ -121,7 +121,7 @@ while run_loop && framecounts < 200
         n = n + 1;
         t(n) = timestamp;
         
-        %% --------------------- Point Cloud Calculation ---------------------
+        % --------------------- Point Cloud Calculation ---------------------
         % Calculate 3D point cloud from depth frame
         points = pointcloud.calculate(depthframe);
         
@@ -195,7 +195,7 @@ while run_loop && framecounts < 200
             % (Other rounding cases handled similarly)
         end
         
-        %% --------------------- Output ---------------------
+        % --------------------- Output ---------------------
         % Convert meters to millimeters
         x2mm = x2*1000; 
         y2mm = y2*1000; 
@@ -210,7 +210,7 @@ while run_loop && framecounts < 200
         Z2(n) = z2;
   
     else
-        %% --------------------- Detection Failed ---------------------
+        % --------------------- Detection Failed ---------------------
         m = m + 1;
         out = rgbcrop;
         fprintf('Tracked Coordinate #%d : Cannot detect object.\n',framecounts)
@@ -227,6 +227,7 @@ pipe.stop;
 % This command safely stops the camera streaming and releases the hardware resources.
 % It should always be called at the end of the program to prevent camera lock issues
 % and to allow other applications or scripts to access the RealSense device later.
+
 
 
 
