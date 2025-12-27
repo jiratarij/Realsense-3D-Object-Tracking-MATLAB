@@ -28,51 +28,34 @@ diffx2 = (maxx2 - minx2)*1000;
 diffy2 = (maxy2 - miny2)*1000;
 diffz2 = (maxz2 - minz2)*1000;
 
-% Ideal max-min coordinate difference
-% Reference trajectory amplitude (ground truth / expected motion)
-Ix = 8.200; 
-Iy = 8.7000; 
-Iz = 0.6000;
-
 % Model max-min coordinate difference
 % Model-based expected trajectory amplitude
-Mx = 8.306; 
+Mx = 8.3060; 
 My = 8.7319; 
 Mz = 2.4600;
 
-% Error respect to ideal trajectory
-% Compute deviation between measured tracking and ideal trajectory
-errorxi2 = diffx2 - Ix;
-erroryi2 = diffy2 - Iy;
-errorzi2 = diffz2 - Iz;
-
-% Error respect to model trajectory
+% Amplitude Deviation Analysis
 % Compute deviation between measured tracking and model trajectory
 errorxm2 = diffx2 - Mx;
 errorym2 = diffy2 - My;
 errorzm2 = diffz2 - Mz;
 
-% Tracking Efficiency
+% Tracking Success Rate
 % Ratio of successful tracking frames to total processed frames
 Teff = n/framecounts;
 
 % Show Data
 % Display tracking amplitude results
-fprintf('Amplitude :.\n')
-fprintf('Model 2 = (%d, %d, %d).\n',diffx2,diffy2,diffz2)
+fprintf('Measured Amplitude = (%d, %d, %d).\n',diffx2,diffy2,diffz2)
 
-% Display error with respect to ideal trajectory
-fprintf('Error w.r.t. ideal.\n')
-fprintf('Model 2 = (%d, %d, %d).\n',errorxi2,erroryi2,errorzi2)
-
-% Display error with respect to model trajectory
+% Display Amplitude Deviation with respect to reference trajectory
 fprintf('Error w.r.t. model.\n')
-fprintf('Model 2 = (%d, %d, %d).\n',errorxm2,errorym2,errorzm2)
+fprintf('Amplitude Deviation= (%d, %d, %d).\n',errorxm2,errorym2,errorzm2)
 
-% Display tracking efficiency metric
-fprintf('Tracking Efficiency = %d.\n',Teff)
+% Display Tracking Success Rate
+fprintf('Tracking Success Rate = %d.\n',Teff)
 
-% Plot graph
+% Trajectory Visualization
 % Visualize raw tracking data versus smoothed trajectory (X-axis)
 plot(t,X2)
 hold on
@@ -80,5 +63,25 @@ plot(t,Xs2)
 title('X','FontSize',20)
 xlabel("#Frame")
 ylabel("X (m)")
+legend("Pure Data","Fitted Data")
+hold off
+
+% Visualize raw tracking data versus smoothed trajectory (Y-axis)
+plot(t,Y2)
+hold on
+plot(t,Ys2)
+title('Y','FontSize',20)
+xlabel("#Frame")
+ylabel("Y (m)")
+legend("Pure Data","Fitted Data")
+hold off
+
+% Visualize raw tracking data versus smoothed trajectory (Z-axis)
+plot(t,Z2)
+hold on
+plot(t,Zs2)
+title('Z','FontSize',20)
+xlabel("#Frame")
+ylabel("Z (m)")
 legend("Pure Data","Fitted Data")
 hold off
