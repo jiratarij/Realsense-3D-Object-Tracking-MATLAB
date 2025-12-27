@@ -1,16 +1,16 @@
 # Tracking Evaluation Method
 
 This document explains how tracking performance is evaluated using
-`Evaluation.matlab`.
+`Evaluation.m`.
 
 ---
 
 ## 1. Evaluation Objectives
 
 The evaluation focuses on:
-- Motion amplitude in 3D space
-- Deviation from ideal and reference trajectories
-- Tracking efficiency
+- Amplitude Deviation Analysis
+- Tracking Success Rate
+- Trajectory Visualization
 
 ---
 
@@ -23,61 +23,25 @@ The evaluation focuses on:
 
 ---
 
-## 3. Amplitude Calculation
+## 3. Amplitude Deviation Analysis
 
-For each axis:
-- Minimum and maximum values are extracted
-- Amplitude is calculated as:
+- The amplitude deviation is used as a quantitative metric to evaluate the tracking performance.
+- Amplitude Deviation in each axis are calculated as :
 
-- Unit is converted from meters to millimeters
-
----
-
-## 4. Reference Trajectories
-
-Two reference models are used:
-
-### 4.1 Ideal Trajectory
-- Predefined ideal motion amplitude
-- Represents expected system behavior
-
-### 4.2 Model Trajectory
-- Reference trajectory derived from system model
+$$\text{Amplitude Deviation} = \text{Measured Amplitude} - \text{Reference Amplitude}$$
 
 ---
 
-## 5. Error Metrics
+## 4. Tracking Success Rate
 
-Errors are computed as:
+- The tracking success rate is used to evaluate the robustness of the proposed tracking system.
+- Tracking Success Rate is defined as:
 
-- Error w.r.t. Ideal:
-- Error w.r.t. Model:
-
-
-These errors indicate tracking deviation in each axis.
+$$\text{Tracking Success Rate} = \frac{\text{Valid Tracking Frames}}{\text{Total Frames}}$$
 
 ---
 
-## 6. Tracking Efficiency
-
-Tracking efficiency is defined as:
-
-
-- Reflects robustness of object detection
-- Penalizes missed detections
-
----
-
-## 7. Visualization
+## 5. Trajectory Visualization
 
 - Raw and smoothed trajectories are plotted
 - Enables qualitative assessment of tracking stability
-
----
-
-## 8. Evaluation Summary
-
-The evaluation combines:
-- Quantitative accuracy
-- Robustness of detection
-- Temporal consistency of tracking
