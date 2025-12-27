@@ -1,5 +1,6 @@
 # System Configuration & Environment Setup
 
+
 This document describes the system configuration and software dependencies
 used to acquire data from the Intel RealSense camera and process it in MATLAB.
 
@@ -8,7 +9,7 @@ used to acquire data from the Intel RealSense camera and process it in MATLAB.
 > The following configuration is provided as a **reference guideline**.
 > Running the system today may require version adjustments and could result in compatibility errors.
 
----
+
 
 ## 1. Hardware Setup
 
@@ -19,7 +20,7 @@ used to acquire data from the Intel RealSense camera and process it in MATLAB.
   - CPU: x64 architecture
   - GPU: Not required
 
----
+
 
 ## 2. Software Components Overview
 
@@ -43,7 +44,7 @@ graph TD
     style F fill:none,stroke:#333,stroke-width:1px
 ```    
 
----
+
 
 ## 3. Required Software & Libraries
 
@@ -60,8 +61,6 @@ graph TD
 - Ensure camera firmware is updated
 - SDK must be installed **before** MATLAB integration
 
----
-
 ### 3.2 CMake
 
 - Required for building RealSense SDK components
@@ -69,8 +68,6 @@ graph TD
 
 **Recommended Version (2022)**
 - CMake ≥ 3.18
-
----
 
 ### 3.3 MATLAB
 
@@ -82,7 +79,7 @@ graph TD
   - Access camera frames
   - Retrieve depth and point cloud data
 
----
+
 
 ## 4. Known Limitations
 
