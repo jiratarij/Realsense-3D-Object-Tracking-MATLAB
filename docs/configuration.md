@@ -25,39 +25,32 @@ used to acquire data from the Intel RealSense camera and process it in MATLAB.
 
 The data acquisition and processing pipeline consists of the following components:
 
-Intel RealSense Camera
+graph TD
+    %% Node Definitions
+    A[fa:fa-camera Intel RealSense D435i] --> B[RealSense SDK 2.0]
+    B --> C[C++ Backend SDK]
+    C --> D{MATLAB Wrapper}
+    D -->|Compiled via CMake| E[MATLAB MEX Files]
+    E --> F[MATLAB Processing]
+    
+    %% Sub-sections
+    subgraph "Hardware Layer"
+    A
+    end
 
+    subgraph "Driver & API Layer"
+    B
+    C
+    end
 
+    subgraph "Application Layer"
+    F
+    end
 
-↓
-
-
-
-RealSense SDK 2.0
-
-
-
-↓
-
-
-
-C++ Backend (SDK)
-
-
-
-↓
-
-
-
-MATLAB RealSense Wrapper
-
-
-
-↓
-
-
-
-MATLAB Image & Point Cloud Processing
+    %% Styling
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style F fill:#0076b4,stroke:#fff,stroke-width:2px,color:#fff
+    style E fill:#f96,stroke:#333
 
 ---
 
