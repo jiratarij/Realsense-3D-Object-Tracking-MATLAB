@@ -27,32 +27,20 @@ The data acquisition and processing pipeline consists of the following component
 
 ```mermaid
 graph TD
-    %% การกำหนดโหนดและข้อความ
-    A[fa:fa-camera Intel RealSense D435i] --> B[RealSense SDK 2.0]
-    B --> C[C++ Backend SDK]
-    C --> D{MATLAB RealSense Wrapper}
-    D -->|Build via CMake| E[MATLAB MEX Files]
-    E --> F[MATLAB Image & Point Cloud Processing]
-    
-    %% การจัดกลุ่มส่วนประกอบ
-    subgraph Hardware_Layer [Hardware Layer]
-    A
-    end
+    %% Node Definitions - ใช้ ( ) เพื่อให้เป็นกล่องสี่เหลี่ยมมุมมน
+    A(Intel RealSense D435i) --> B(RealSense SDK 2.0)
+    B --> C(C++ Backend SDK)
+    C --> D(MATLAB RealSense Wrapper)
+    D --> E(MATLAB MEX Files)
+    E --> F(MATLAB Image & Point Cloud Processing)
 
-    subgraph Driver_Layer [Driver & API Layer]
-    B
-    C
-    end
-
-    subgraph Software_Layer [Application Layer]
-    E
-    F
-    end
-
-    %% การตกแต่งสีสัน
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style F fill:#0076b4,stroke:#fff,stroke-width:2px,color:#fff
-    style E fill:#f96,stroke:#333
+    %% สไตล์เสริมเพื่อให้ขอบชัดเจนและเรียบง่าย
+    style A fill:none,stroke:#333,stroke-width:1px
+    style B fill:none,stroke:#333,stroke-width:1px
+    style C fill:none,stroke:#333,stroke-width:1px
+    style D fill:none,stroke:#333,stroke-width:1px
+    style E fill:none,stroke:#333,stroke-width:1px
+    style F fill:none,stroke:#333,stroke-width:1px
 ```    
 
 ---
@@ -96,11 +84,7 @@ graph TD
 
 ---
 
-## 4. MATLAB–RealSense Integration Flow
-
----
-
-## 5. Known Limitations
+## 4. Known Limitations
 
 - This configuration reflects the system state in 2022
 - SDK, MATLAB, or OS updates may introduce:
