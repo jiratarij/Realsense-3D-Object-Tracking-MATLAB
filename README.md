@@ -1,6 +1,5 @@
 # 3D Object Tracking Using Intel RealSense D435i and MATLAB
 
----
 
 ## Overview
 
