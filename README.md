@@ -1,5 +1,7 @@
 # 3D Object Tracking Using Intel RealSense D435i and MATLAB
 
+---
+
 ## Overview
 
 This project focuses on **3D object motion tracking** using an **Intel RealSense D435i** depth camera integrated with **MATLAB**.
