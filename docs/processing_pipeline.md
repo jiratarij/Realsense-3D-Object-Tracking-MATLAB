@@ -4,7 +4,7 @@ This document describes the logical flow of the MATLAB script
 `msin_tracking_realsense.m`, which performs real-time object detection and 3D tracking
 using Intel RealSense d435i.
 
----
+
 
 ## 1. High-Level Processing Flow
 
@@ -27,21 +27,22 @@ graph TD
     style S7 fill:none,stroke:#333,stroke-width:1px
     style S8 fill:none,stroke:#333,stroke-width:1px
 ```
----
+
+
 
 ## 2. Frame Acquisition
 
 - RGB and depth frames are streamed from the RealSense camera
 - Initial frames are discarded to stabilize the camera output
 
----
+
 
 ## 3. Depth Alignment
 
 - Depth frame is aligned to the RGB frame
 - Ensures pixel-wise correspondence between color and depth data
 
----
+
 
 ## 4. Region of Interest (ROI)
 
@@ -50,14 +51,14 @@ graph TD
   - Reduce computation cost
   - Focus on the object of interest
 
----
+
 
 ## 5. Image Pre-processing
 
 - RGB image is converted to grayscale (green channel)
 - Thresholding is applied to generate a binary image
 
----
+
 
 ## 6. Post-processing (Morphology)
 
@@ -66,7 +67,7 @@ graph TD
   - Dilation to enhance object area
   - Erosion to remove noise
 
----
+
 
 ## 7. Object Detection
 
@@ -75,7 +76,7 @@ graph TD
   - Exactly one circle detected
   - Valid RGB and depth frames
 
----
+
 
 ## 8. 3D Coordinate Extraction
 
@@ -83,7 +84,7 @@ graph TD
 - Pixel coordinates of detected object center are mapped to 3D space
 - Bilinear interpolation is used to improve coordinate precision
 
----
+
 
 ## 9. Tracking Logic
 
@@ -93,7 +94,7 @@ graph TD
   - Frame is skipped
   - Tracking efficiency is updated
 
----
+
 
 ## 10. Output
 
