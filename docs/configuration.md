@@ -25,6 +25,39 @@ used to acquire data from the Intel RealSense camera and process it in MATLAB.
 
 The data acquisition and processing pipeline consists of the following components:
 
+Intel RealSense Camera
+
+
+
+↓
+
+
+
+RealSense SDK 2.0
+
+
+
+↓
+
+
+
+C++ Backend (SDK)
+
+
+
+↓
+
+
+
+MATLAB RealSense Wrapper
+
+
+
+↓
+
+
+
+MATLAB Image & Point Cloud Processing
 
 ---
 
