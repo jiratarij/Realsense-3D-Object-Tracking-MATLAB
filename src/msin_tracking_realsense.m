@@ -2,6 +2,7 @@ clc
 clear
 close all
 warning off
+
 %% ===================== Video & RealSense Initialization =====================
 % Create video player object for visualization
 video_Player = vision.VideoPlayer();
@@ -226,4 +227,5 @@ pipe.stop;
 % This command safely stops the camera streaming and releases the hardware resources.
 % It should always be called at the end of the program to prevent camera lock issues
 % and to allow other applications or scripts to access the RealSense device later.
+
 
