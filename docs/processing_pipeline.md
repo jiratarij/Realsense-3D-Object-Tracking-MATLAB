@@ -1,7 +1,7 @@
 # Processing Pipeline – Object Tracking
 
 This document describes the logical flow of the MATLAB script
-`Tracking.matlab`, which performs real-time object detection and 3D tracking
+`msin_tracking_realsense.m`, which performs real-time object detection and 3D tracking
 using Intel RealSense RGB-D data.
 
 ---
