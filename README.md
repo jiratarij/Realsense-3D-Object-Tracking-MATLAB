@@ -45,3 +45,9 @@ For detailed explanations, please refer to:
 - `docs/configuration.md` – System setup and environment configuration
 - `docs/processing_pipeline.md` – Tracking and processing workflow
 - `docs/evaluation.md` – Performance evaluation metrics and analysis
+
+
+> **Remark**
+> This project was originally developed in **2022**.
+> The following repository is provided as a **reference guideline**.
+> Running the system today may require version adjustments and could result in compatibility errors.
