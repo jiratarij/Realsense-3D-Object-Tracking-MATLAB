@@ -1,32 +1,10 @@
-# ===============================
-# MATLAB
-# ===============================
-
-# Autosave files
-*.asv
-
-# MATLAB binary files
-*.mat
-
-# Compiled files
-*.mex*
-*.p
-
-# MATLAB code generation
-slprj/
-codegen/
-
-# Simulink cache
-*.slxc
-
 # MATLAB temporary files
-*.tmp
-*.bak
+*.asv
+*.m~
+*.slxc
+*.mex*
+*.log
 
-# MATLAB project settings
-*.prj
-*.mlproj
-
-# OS generated files
-.DS_Store
-Thumbs.db
+# Workspace data
+*.mat
+*.fig
