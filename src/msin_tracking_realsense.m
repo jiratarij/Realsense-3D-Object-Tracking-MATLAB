@@ -3,7 +3,7 @@ clear
 close all
 warning off
 
-%% ===================== Video & RealSense Initialization =====================
+% ===================== Video & RealSense Initialization =====================
 % Create video player object for visualization
 video_Player = vision.VideoPlayer();
 
@@ -23,13 +23,13 @@ alignedfs = realsense.align(alignto);
 % Create colorizer to visualize depth frame nicely
 colorizer = realsense.colorizer();
 
-%% ===================== Camera Warm-up =====================
+% ===================== Camera Warm-up =====================
 % Discard initial frames to allow camera auto-exposure to stabilize
 for i = 1:15
     fs = pipe.wait_for_frames();
 end
 
-%% ===================== Initial RGB Frame Acquisition =====================
+% ===================== Initial RGB Frame Acquisition =====================
 % Get color frame
 rgbframe = fs.get_color_frame();
 
@@ -38,14 +38,14 @@ datargb = rgbframe.get_data;
 rgbimg = permute(reshape(datargb', ...
     [3,rgbframe.get_width(),rgbframe.get_height()]),[3 2 1]);
 
-%% ===================== Region of Interest (ROI) =====================
+% ===================== Region of Interest (ROI) =====================
 % Define crop area [x y width height]
 Rect = [310,10,79,79];
 
 % Crop RGB image to ROI
 rgbcrop = imcrop(rgbimg,Rect);
 
-%% ===================== Loop Control Variables =====================
+% ===================== Loop Control Variables =====================
 run_loop = true;
 framecounts = 0;   % Frame counter
 n = 0;             % Valid detection counter
@@ -53,7 +53,7 @@ m = 0;             % Failed detection counter
 
 tic   % Start timer
 
-%% ===================== Main Processing Loop =====================
+% ===================== Main Processing Loop =====================
 while run_loop && framecounts < 200
     
     %% --------------------- Frame Acquisition ---------------------
@@ -80,7 +80,7 @@ while run_loop && framecounts < 200
     rgbimg = permute(reshape(datargb', ...
         [3,rgbframe.get_width(),rgbframe.get_height()]),[3 2 1]);
     
-    %% --------------------- Pre-processing ---------------------
+    % --------------------- Pre-processing ---------------------
     % Crop image to ROI
     rgbcrop = imcrop(rgbimg,Rect);
     
@@ -88,11 +88,11 @@ while run_loop && framecounts < 200
     graycrop = rgbcrop(:,:,2);
     datagray = graycrop;
     
-    %% --------------------- Image Segmentation ---------------------
+    % --------------------- Image Segmentation ---------------------
     % Convert grayscale image to binary using threshold
     bwcrop = im2bw(graycrop,0.25);
     
-    %% --------------------- Morphological Processing ---------------------
+    % --------------------- Morphological Processing ---------------------
     % Invert binary image
     bwcrop = ~bwcrop;
     
@@ -108,12 +108,12 @@ while run_loop && framecounts < 200
     bwcrop = ~bwcrop;
     databwpostmor = bwcrop;
     
-    %% --------------------- Object Detection ---------------------
+    % --------------------- Object Detection ---------------------
     % Detect circular object in ROI
     [centers,radii] = imfindcircles(bwcrop,[3 5], ...
         'ObjectPolarity','dark','Sensitivity',1);
     
-    %% --------------------- Validation Check ---------------------
+    % --------------------- Validation Check ---------------------
     % Proceed only if exactly one circle is detected and frames are valid
     if length(radii) == 1 && (~isempty(radii)) && ...
        (~isempty(depthframe.logical())) && (~isempty(rgbframe.logical()))
@@ -148,7 +148,7 @@ while run_loop && framecounts < 200
         % Rounded center location
         rcenters = round(centers);
         
-        %% --------------------- Subpixel Interpolation ---------------------
+        % --------------------- Subpixel Interpolation ---------------------
         % Bilinear interpolation based on fractional pixel location
         % Multiple cases handle rounding direction of X and Y
         % Goal: estimate accurate 3D coordinate at detected circle center
@@ -227,5 +227,6 @@ pipe.stop;
 % This command safely stops the camera streaming and releases the hardware resources.
 % It should always be called at the end of the program to prevent camera lock issues
 % and to allow other applications or scripts to access the RealSense device later.
+
 
 
