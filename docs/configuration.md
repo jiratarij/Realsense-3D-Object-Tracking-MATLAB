@@ -26,32 +26,33 @@ used to acquire data from the Intel RealSense camera and process it in MATLAB.
 The data acquisition and processing pipeline consists of the following components:
 
 graph TD
-    %% Node Definitions
+    %% การกำหนดโหนดและข้อความ
     A[fa:fa-camera Intel RealSense D435i] --> B[RealSense SDK 2.0]
     B --> C[C++ Backend SDK]
-    C --> D{MATLAB Wrapper}
-    D -->|Compiled via CMake| E[MATLAB MEX Files]
-    E --> F[MATLAB Processing]
+    C --> D{MATLAB RealSense Wrapper}
+    D -->|Build via CMake| E[MATLAB MEX Files]
+    E --> F[MATLAB Image & Point Cloud Processing]
     
-    %% Sub-sections
-    subgraph "Hardware Layer"
+    %% การจัดกลุ่มเพื่อให้ดูเป็นระเบียบ
+    subgraph Hardware_Layer [Hardware Layer]
     A
     end
 
-    subgraph "Driver & API Layer"
+    subgraph Driver_Layer [Driver & API Layer]
     B
     C
     end
 
-    subgraph "Application Layer"
+    subgraph Software_Layer [Application Layer]
+    E
     F
     end
 
-    %% Styling
+    %% การตกแต่งสีสันให้ดูโปรเฟสชันแนล
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style F fill:#0076b4,stroke:#fff,stroke-width:2px,color:#fff
     style E fill:#f96,stroke:#333
-
+    
 ---
 
 ## 3. Required Software & Libraries
