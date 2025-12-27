@@ -1,4 +1,4 @@
-%% ===================== TRACKING DATA EVALUATION =====================
+% ===================== TRACKING DATA EVALUATION =====================
 % This section evaluates the tracking performance using the recorded
 % 3D trajectory data (X2, Y2, Z2) obtained from the RealSense pipeline.
 % The evaluation includes trajectory smoothing, spatial amplitude analysis,
@@ -85,3 +85,4 @@ xlabel("#Frame")
 ylabel("Z (m)")
 legend("Pure Data","Fitted Data")
 hold off
+
