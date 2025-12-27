@@ -33,7 +33,7 @@ To enhance interpretability, the measured tracking data is visualized and compar
 - Data visualization for comparison between measured and reference motion
 
 
-## 🎥 Tracking Demonstration
+## Tracking Demonstration
 
 Below is a real-time demonstration of the 3D object tracking system in action. The green markers indicate the tracked center of the circular object based on the depth and RGB data processing.
 
